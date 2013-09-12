@@ -115,7 +115,6 @@ IPLOC* iploc_get_geoinfo(const char* host)
 void iploc_free(IPLOC* iploc_p)
 {
     free(iploc_p->ip);
-    free(iploc_p->isp);
     free(iploc_p->country);
     free(iploc_p->region);
     free(iploc_p->city);
@@ -154,8 +153,6 @@ static int json_parse_resp(IPLOC* iploc_p, const char* json_data)
     iploc_p->country = strdup(json_object_get_string(jobj_extract));    
     jobj_extract = json_object_object_get(jobj, "city");
     iploc_p->city = strdup(json_object_get_string(jobj_extract));
-    jobj_extract = json_object_object_get(jobj, "isp");
-    iploc_p->isp = strdup(json_object_get_string(jobj_extract));
     jobj_extract = json_object_object_get(jobj, "organization");
     iploc_p->organization = strdup(json_object_get_string(jobj_extract));
     jobj_extract = json_object_object_get(jobj, "latitude");

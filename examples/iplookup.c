@@ -6,7 +6,6 @@ void show_ip_info(const IPLOC* iploc_p)
 {
     printf("IP: %s\n", iploc_p->ip);
     printf("Hostname: %s\n", iploc_p->hostname);
-    printf("ISP: %s\n", iploc_p->isp);
     printf("Organization: %s\n", iploc_p->organization);
     printf("Country: %s\n", iploc_p->country);
     printf("Region: %s\n", iploc_p->region);

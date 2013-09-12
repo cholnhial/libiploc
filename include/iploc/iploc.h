@@ -3,7 +3,6 @@
 
 typedef struct {
     char* ip;
-    char* isp;
     char* hostname;
     char* organization;
     char* country;
