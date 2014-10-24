@@ -1,6 +1,6 @@
 TARGET = iplookup
 OBJECTS = iplookup.o
-CFLAGS = -c
+CFLAGS = -c -g
 LDFLAGS = -liploc
 
 CC = gcc
