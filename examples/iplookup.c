@@ -68,30 +68,25 @@ int main(int argc, char** argv)
     {
         char ip_address[INET6_ADDRSTRLEN];
         
-        /* Do it forever */
-        for(;;)
+        /* Read IP */
+        fgets(ip_address, INET6_ADDRSTRLEN - 1, stdin);
+        /* Remove newline if any */
+        if(ip_address[strlen(ip_address) - 1] == '\n')
         {
-            /* Read IP */
-            fgets(ip_address, INET6_ADDRSTRLEN - 1, stdin);
-            /* Remove newline if any */
-            if(ip_address[strlen(ip_address) - 1] == '\n')
-            {
-                ip_address[strlen(ip_address) -1] = '\0';
-            }
-
-            /* Look up IP */
-            IPLOC* ipinfo = iploc_get_geoinfo(ip_address);
-
-            /* Display info in line*/
-            if(ipinfo != NULL)
-            {
-            	show_ip_info_line(ipinfo);
-
-            	/* Clean up */
-            	iploc_free(ipinfo);
-            }
+            ip_address[strlen(ip_address) -1] = '\0';
         }
-        /*.... and ever */
+
+        /* Look up IP */
+        IPLOC* ipinfo = iploc_get_geoinfo(ip_address);
+
+        /* Display info in line*/
+        if(ipinfo != NULL)
+        {
+            show_ip_info_line(ipinfo);
+
+            /* Clean up */
+            iploc_free(ipinfo);
+        }
     }
 
     
